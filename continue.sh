@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#echo '请输入你的esp分区，小心！！形如/dev/sdX'
-#read esp
+echo '请输入你的esp分区，小心！！形如/dev/sdX'
+read esp
 
 # set the locale (system language)
 echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen
@@ -63,9 +63,9 @@ sed -i "80s/$/&$username ALL=(ALL) ALL/g" /etc/sudoers
 #更新引导
 grub-mkconfig -o /boot/grub/grub.cfg
 mkdir /f
-#mount $esp /f
-#grub-install --target=x86_64-efi --efi-directory=/f --bootloader-id=boot
-#umount /f
+mount $esp /f
+grub-install --target=x86_64-efi --efi-directory=/f --bootloader-id=boot
+umount /f
 
 #设置环境变量
 echo " export GTK_IM_MODULE=fcitx
